@@ -1,11 +1,14 @@
-import {
-  CognitoIdentityProviderClient,
-  InitiateAuthCommand,
-  InitiateAuthCommandOutput,
-  RespondToAuthChallengeCommand,
-  ChallengeNameType,
-  RespondToAuthChallengeCommandOutput
-} from '@aws-sdk/client-cognito-identity-provider';
+import 'dotenv/config';
+
+// import {
+//   CognitoIdentityProviderClient,
+//   InitiateAuthCommand,
+//   InitiateAuthCommandOutput,
+//   RespondToAuthChallengeCommand,
+//   ChallengeNameType,
+//   RespondToAuthChallengeCommandOutput
+// } from '@aws-sdk/client-cognito-identity-provider';
+
 
 // @ts-ignore
 import { default as AuthenticationHelperWrapper } from 'amazon-cognito-identity-js/lib/AuthenticationHelper.js'
@@ -206,13 +209,17 @@ const challengeResponse = async ({
 }
 
 
-const REGION: string = process.env.REGION || 'missing region';
-const SECRETS_MANAGER_ID: string = process.env.SECRETS_MANAGER_ID || 'missing secrets manager id';
-const USERNAME: string = process.env.COGNITO_USERNAME || 'missing cognito username';
-const PASSWORD: string = process.env.COGNITO_PASSWORD || 'missing cognito password';
+const REGION: string = 'ap-northeast-1';
+const SECRETS_MANAGER_ID: string = 'SecretsManager'
+const COGNITO_USERNAME: string = 'add5a600-b08c-49fb-ad20-693fd0194eda'
+const COGNITO_PASSWORD: string = 'braQfuqVWtMCNcP6k-2o'
+// const REGION: string = process.env.REGION || 'missing region';
+// const SECRETS_MANAGER_ID: string = process.env.SECRETS_MANAGER_ID || 'missing secrets manager id';
+// const COGNITO_USERNAME: string = process.env.COGNITO_USERNAME || 'missing cognito username';
+// const COGNITO_PASSWORD: string = process.env.COGNITO_PASSWORD || 'missing cognito password';
 console.log(await challengeResponse({
   region: REGION,
   secretsManagerId: SECRETS_MANAGER_ID,
-  username: USERNAME,
-  password: PASSWORD,
+  username: COGNITO_USERNAME,
+  password: COGNITO_PASSWORD,
 }));

@@ -5,19 +5,32 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
+        "build": "webpack",
+        "watch": "webpack -w",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "private": true,
+    "browser": {
+        "crypto": false
+    },
     "devDependencies": {
-        "@types/node": "^20.2.3",
-        "typescript": "^5.0.4"
+        // "@aws-sdk/client-cognito-identity-provider": "^3.338.0",
+        // "@aws-sdk/client-secrets-manager": "^3.338.0",
+        "amazon-cognito-identity-js": "^6.2.0",
+        "os-browserify": "^0.3.0",
+        "path-browserify": "^1.0.1"
     },
     "dependencies": {
-        "@aws-sdk/client-cognito-identity-provider": "^3.338.0",
-        "@aws-sdk/client-secrets-manager": "^3.338.0",
-        "amazon-cognito-identity-js": "^6.2.0",
-        "http-server": "^14.1.1"
+        "@types/node": "^20.2.3",
+        "dotenv": "^16.0.3",
+        "dotenv-webpack": "^8.0.1",
+        "http-server": "^14.1.1",
+        "ts-loader": "^9.4.3",
+        "typescript": "^5.0.4",
+        "webpack": "^5.84.1",
+        "webpack-cli": "^5.1.1"
     }
 }
